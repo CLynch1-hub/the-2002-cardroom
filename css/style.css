@@ -161,3 +161,103 @@ tbody tr:nth-child(even) {
     flex: 1 1 45%;
   }
 }
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 10px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    flex: 1 1 auto;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
+
+/* -----------------------------------------
+   MOBILE OPTIMISATION
+   ----------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Sidebar becomes a top navigation bar */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 10px 15px;
+    border-right: none;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  }
+
+  /* Navigation buttons become horizontal and wrap */
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    flex: 1 1 auto;
+    padding: 10px 12px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 6px;
+  }
+
+  /* Content fills the full width */
+  .content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  /* Tables scroll horizontally if needed */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    font-size: 14px;
+    min-width: 500px; /* prevents squashing */
+  }
+
+  /* Headings slightly smaller for mobile */
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+
+/* -----------------------------------------
+   VERY SMALL SCREENS (phones under 400px)
+   ----------------------------------------- */
+@media (max-width: 400px) {
+  .nav-link {
+    font-size: 12px;
+    padding: 8px 6px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+}
