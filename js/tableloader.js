@@ -1,4 +1,6 @@
-// Simple CSV parser
+// ----------------------------------------------------
+// CSV PARSER
+// ----------------------------------------------------
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
   return lines.map(line =>
@@ -6,7 +8,9 @@ function parseCSV(text) {
   );
 }
 
-// Generic table loader
+// ----------------------------------------------------
+// GENERIC TABLE LOADER
+// ----------------------------------------------------
 function createTable(containerId, csvPath) {
   fetch(csvPath)
     .then(res => res.text())
@@ -33,11 +37,11 @@ function createTable(containerId, csvPath) {
       // Body rows
       rows.slice(1).forEach(row => {
         if (row.length === 1 && row[0] === "") return;
+
         const tr = document.createElement("tr");
         row.forEach((cell, i) => {
           const td = document.createElement("td");
           td.textContent = cell;
-          // For mobile card layout: label with column header
           td.setAttribute("data-label", rows[0][i] || "");
           tr.appendChild(td);
         });
@@ -52,20 +56,21 @@ function createTable(containerId, csvPath) {
     .catch(err => console.error("Error loading CSV:", csvPath, err));
 }
 
-// Navigation setup
+// ----------------------------------------------------
+// NAVIGATION SETUP
+// ----------------------------------------------------
 function setupNav() {
   const buttons = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".content-section");
 
   buttons.forEach(btn => {
     const target = btn.getAttribute("data-target");
-    if (!target) return; // skip dark-mode button etc.
+    if (!target) return;
 
     btn.addEventListener("click", () => {
       // Update active button
       buttons.forEach(b => {
-        const t = b.getAttribute("data-target");
-        if (t) b.classList.remove("active");
+        if (b.getAttribute("data-target")) b.classList.remove("active");
       });
       btn.classList.add("active");
 
@@ -75,18 +80,48 @@ function setupNav() {
         else sec.classList.remove("active");
       });
 
-      // On mobile, close the menu after selection
-      const nav = document.querySelector(".sidebar-nav");
-      if (nav && nav.classList.contains("open")) {
-        nav.classList.remove("open");
-      }
+      // Close mobile menu if open
+      const openNav = document.querySelector(".sidebar-nav.open");
+      if (openNav) openNav.classList.remove("open");
+
+      // Scroll to top for better UX
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 }
 
-// Initialise on load
+// ----------------------------------------------------
+// SEASON SWITCHER
+// ----------------------------------------------------
+function setupSeasonSwitcher() {
+  const seasonButtons = document.querySelectorAll(".season-btn");
+
+  seasonButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const season = btn.dataset.season;
+
+      // Update active season button
+      seasonButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Show correct season nav
+      document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
+      document.querySelector(`.season-${season}`)?.classList.add("active");
+    });
+  });
+}
+
+// ----------------------------------------------------
+// INITIALISE ON LOAD
+// ----------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
+  setupSeasonSwitcher();
+
+  // Ensure correct season nav is visible on load
+  const activeSeason = document.querySelector(".season-btn.active")?.dataset.season;
+  document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
+  document.querySelector(`.season-${activeSeason}`)?.classList.add("active");
 
   // Load all CSV-driven tables
   createTable("structure-table", "data/Game Structure.csv");
@@ -94,10 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
   createTable("results-table", "data/Player Game Results.csv");
   createTable("players-table", "data/Poker Players.csv");
   createTable("leaderboard-table", "data/Leaderboard.csv");
+
+  // Future seasons (optional)
+  // createTable("results-table-2026", "data/Player Game Results 2026.csv");
+  // createTable("leaderboard-table-2026", "data/Leaderboard 2026.csv");
 });
-
-// Ensure only active season nav is visible on load
-const activeSeason = document.querySelector('.season-btn.active')?.dataset.season;
-document.querySelectorAll('.season-nav').forEach(nav => nav.classList.remove('active'));
-document.querySelector(`.season-${activeSeason}`).classList.add('active');
-
