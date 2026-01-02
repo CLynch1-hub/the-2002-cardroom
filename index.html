@@ -2,314 +2,246 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>
-      The 2002 Cardroom
-    </title>
+    <title>The 2002 Cardroom</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <link rel="stylesheet" href="css/style.css" />
-
 </head>
 
 <body>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-      <div class="sidebar-header">
+    <div class="sidebar-header">
         <h1>The 2002 Cardroom</h1>
-        <p>Season 2025</p>
-      </div>
 
-      <!-- Hamburger Menu (mobile only) -->
-      <div class="hamburger" onclick="document.querySelector('.sidebar-nav').classList.toggle('open')">
+        <!-- Season Switcher -->
+        <div class="season-switcher">
+            <button class="season-btn active" data-season="2025">Season 2025</button>
+            <button class="season-btn" data-season="2026">Season 2026</button>
+        </div>
+    </div>
+
+    <!-- Hamburger (mobile only) -->
+    <div class="hamburger" onclick="document.querySelector('.sidebar-nav.active').classList.toggle('open')">
         ☰ Menu
-      </div>
+    </div>
 
-      <!-- Dark Mode Toggle -->
-      <button class="nav-link dark-mode-toggle" onclick="document.body.classList.toggle('dark-mode')">
+    <!-- Season Navigation: 2025 -->
+    <nav class="sidebar-nav season-nav season-2025 active">
+        <button class="nav-link active" data-target="s2025-intro">Introduction</button>
+        <button class="nav-link" data-target="s2025-results">Results</button>
+        <button class="nav-link" data-target="s2025-leaderboard">Leaderboard</button>
+        <button class="nav-link" data-target="s2025-conclusion">Conclusion</button>
+    </nav>
+
+    <!-- Season Navigation: 2026 -->
+    <nav class="sidebar-nav season-nav season-2026">
+        <button class="nav-link" data-target="s2026-intro">Introduction</button>
+        <button class="nav-link" data-target="s2026-results">Results</button>
+        <button class="nav-link" data-target="s2026-leaderboard">Leaderboard</button>
+        <button class="nav-link" data-target="s2026-conclusion">Conclusion</button>
+    </nav>
+
+    <hr>
+
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="sidebar-nav global-nav">
+        <button class="nav-link" data-target="global-structure">Game Structure</button>
+        <button class="nav-link" data-target="global-hosts">Hosts & Schedule</button>
+        <button class="nav-link" data-target="global-players">Players</button>
+    </nav>
+
+    <hr>
+
+    <!-- Dark Mode -->
+    <button class="nav-link dark-mode-toggle" onclick="document.body.classList.toggle('dark-mode')">
         🌙 Dark Mode
-      </button>
+    </button>
 
-      <!-- Navigation Buttons -->
-      <nav class="sidebar-nav">
-        <button class="nav-link active" data-target="intro">Introduction</button>
-        <button class="nav-link"        data-target="opening-night">Opening Night</button>
-        <button class="nav-link"        data-target="structure">Game Structure</button>
-        <button class="nav-link"        data-target="hosts">Hosts & Schedule</button>
-        <button class="nav-link"        data-target="results">Player Results</button>
-        <button class="nav-link"        data-target="leaderboard">Leaderboard</button>
-        <button class="nav-link"        data-target="players">Players</button>
-        <button class="nav-link"        data-target="charts">Charts</button>
-        <button class="nav-link"        data-target="conclusion">Conclusion</button>
-      </nav>
+</aside>
 
-    </aside>
+<!-- MAIN CONTENT -->
+<main class="content">
 
-  <!-- Main Content -->
-  <main class="content">
+    <!-- ========================= -->
+    <!-- SEASON 2025 CONTENT -->
+    <!-- ========================= -->
 
-    <!-- Introduction  -->
-      <section id="intro" class="content-section active">
-        <h2>Introduction</h2>
-          <h3>The 2002 Cardroom — Where Legends Are Made</h3>
+    <!-- 2025 Introduction -->
+    <section id="s2025-intro" class="content-section active">
+        <h2>Introduction — Season 2025</h2>
+        <h3>The 2002 Cardroom — Where Legends Are Made</h3>
 
         <ul>
-          <li>Event Manager: Martin Hunter</li>
-          <li>Tournament Director: Ciaran Lynch</li>
+            <li>Event Manager: Martin Hunter</li>
+            <li>Tournament Director: Ciaran Lynch</li>
         </ul>
 
-        <p>
-          <strong>The 2002 Cardroom</strong> hosts exclusive, home‑based poker events in plush surroundings across the Letterkenny area.    
-        </p>
-        <p>
-          Games are strictly invite‑only. Some of the OG players have been gathering around the felt since 2002 — over 23 years of cards, craic, and questionable decisions.
-        </p>
+        <p><strong>The 2002 Cardroom</strong> hosts exclusive, home‑based poker events in plush surroundings across the Letterkenny area.</p>
+        <p>Games are strictly invite‑only. Some of the OG players have been gathering since 2002 — over 23 years of cards, craic, and questionable decisions.</p>
 
-        <p>
-          Our Event Manager and Tournament Director have been head‑hunted from some of Ireland’s largest corporations to deliver a completely average experience for our players. Expectations are kept low, and that’s exactly how we like it.
-        </p>
-
-
-        <!-- League Ethos -->
         <div class="ethos-box">
-          <h3>League Ethos</h3>
-          <p>
-            We believe in competitive poker, a few beers, dramatic rebuys, and the occasional Bollywood bluff. 
-            Our league is built on fairness, fun, and the unshakeable belief that Kevin’s 7-2 offsuit is somehow a premium hand.
-          </p>
+            <h3>League Ethos</h3>
+            <p>Competitive poker, a few beers, dramatic rebuys, and the occasional Bollywood bluff.</p>
         </div>
 
-        <!-- How It Works -->
         <div class="how-it-works">
-          <h3>How the Tournament Works</h3>
-          <ul>
-            <li>€1 = 1000 tournament chips</li>
-            <li>€30 entry = 30,000 chips (15,000 + free 15,000 add-on.. to be used by end of level 3)</li>
-            <li>Only 1 rebuy or Top-Up 0f €20 allowed per night.....To be taken by end of level 5</li>
-            <li>€20 rebuy = 20,000 chips</li>
-            <li>levels 1-5 of 30 minutes each and level 6 is 45 mins</li>
-            <li>Breaks after Level 3 (25 mins) and Level 5 (15 mins)</li>
-            <li>End of Level 6: Chips ÷ 1000 = cash-out</li>
-            <li>Cash-out × 50 = league points</li>
-          </ul>
+            <h3>How the Tournament Works</h3>
+            <ul>
+                <li>€1 = 1000 chips</li>
+                <li>€30 entry = 30,000 chips</li>
+                <li>1 rebuy/top-up allowed (€20 = 20,000 chips)</li>
+                <li>Levels 1–5: 30 mins, Level 6: 45 mins</li>
+                <li>Breaks after Levels 3 & 5</li>
+                <li>End of Level 6: Chips ÷ 1000 = cash-out</li>
+                <li>Cash-out × 50 = league points</li>
+            </ul>
         </div>
 
-          <!-- Quote Block -->
-          <blockquote class="league-quote">
-            “We strive for excellence… but settle for whatever happens on the night. With 1 strict rebuy, unless you support Arsenal”  
-            <span>— The Event Manager, Martin </span>
-          </blockquote>
+        <blockquote class="league-quote">
+            “We strive for excellence… but settle for whatever happens on the night.”
+            <span>— Martin</span>
+        </blockquote>
 
-          <!-- Images -->
-          <div class="intro-images">
+        <div class="intro-images">
             <figure>
-              <img src="images/poker_setup_1.jpg" alt="Poker chip rack and dealer setup">
-              <figcaption>Chip rack and dealer setup — ready for action</figcaption>
+                <img src="images/poker_setup_1.jpg" alt="Poker chip rack">
+                <figcaption>Chip rack and dealer setup</figcaption>
             </figure>
 
             <figure>
-              <img src="images/poker_table_2025.jpg" alt="Poker table with cards and chips">
-              <figcaption>Opening night table — Texas Hold'em in full swing</figcaption>
+                <img src="images/poker_table_2025.jpg" alt="Poker table">
+                <figcaption>Opening night table</figcaption>
             </figure>
 
             <figure>
-              <img src="images/table_top.png" alt="Poker table top awaiting the squad">
-              <figcaption>Table top reserve — Texas Hold'em nights</figcaption>
+                <img src="images/table_top.png" alt="Poker table top">
+                <figcaption>Table top reserve</figcaption>
             </figure>
-          </div>
+        </div>
     </section>
 
-
-
-    <!-- Opening night -->
-      <section id="opening-night" class="content-section">
-        <h2>Highlights of League Opening Night — 24 January 2025</h2>
-
-        <p>Storm Éowyn wasn’t enough to put off six brave poker players. Martin abandoned his wife in search of heat and light. Unfortunately, two squad players — Brendan and Steven — have morals!</p>
-
-        <p>As usual, Morgan arrived just in time for the first break. Delighted to see Pocket 5s four times, he held up three — but his 99 and QQ fell to the sword every time, resulting in a rebuy. Hard to beat Kevin’s 7-2 off, as usual.</p>
-
-        <p>The River Lee was in full flow, not a rebuy in sight — until he thought he could defeat the Director. As the night drew to a close, counting his €46, he raised three times with 88, only to meet resistance as Lynch reraised. Not to be deterred, Kevin jumped at the chance to steal the show with an all-in, only to get an instant call with KK, sending his night crashing down. So shocked was I, and under pressure from Kevin’s master plays, that I collapsed to the floor in shock — doing more damage than Éowyn.</p>
-
-        <p>Bollywood bluffs were the star of the show, but not enough to stop Barry throwing in the orange chip before he could get a nut fart out. A poker of 6s kept him in the game until he sheepishly folded to an audacious K4 river Diver raise.</p>
-
-        <p>Who raised six times the big blind with pocket 10s and got called by 8-5 offsuit? Our events manager. Unbelievable, Jeff!</p>
-      </section>
-
-    <!-- Game Structure -->
-    <section id="structure" class="content-section">
-      <h2>Game Structure</h2>
-
-      <p>
-        The tournament is played over <strong>6 levels: 5 of which are 30 minutes and level 6 is 45 minutes</strong>, with:
-      </p>
-
-      <ul>
-        <li>25‑minute break after Level 3</li>
-        <li>15‑minute break after Level 5</li>
-      </ul>
-
-      <p>
-        <strong>Buy‑in:</strong> €30  
-        <br>Starting stack: 30,000 chips (15,000 + free 15,000 add‑on)
-      </p>
-
-      <p>
-        <strong>Rebuy / Top-Up:</strong> €20 = 20,000 chips... max 1 per game to be used by end of level 5.
-      </p>
-
-      <p>
-        At the end of Level 6:
-      </p>
-
-      <ul>
-        <li>Chips ÷ 1000 = cash‑out amount</li>
-        <li>Chips × 50 = league points</li>
-      </ul>
-
-      <div class="table-wrapper">
-        <div id="structure-table"></div>
-      </div>
+    <!-- 2025 Results -->
+    <section id="s2025-results" class="content-section">
+        <h2>Player Results — 2025</h2>
+        <div class="table-wrapper">
+            <div id="results-table"></div>
+        </div>
     </section>
 
-    <!-- Hosts & Schedule -->
-    <section id="hosts" class="content-section">
-      <h2>Hosts & Schedule</h2>
-      <p>
-        The league rotates between hosts to keep things fresh and share the responsibility
-        of running games. The schedule shows who is hosting each night and the planned dates.
-      </p>
-      <div class="table-wrapper">
-        <div id="hosts-table"></div>
-      </div>
+    <!-- 2025 Leaderboard -->
+    <section id="s2025-leaderboard" class="content-section">
+        <h2>Leaderboard — 2025</h2>
+        <div class="table-wrapper">
+            <div id="leaderboard-table"></div>
+        </div>
     </section>
 
-    <!-- Player Results -->
-    <section id="results" class="content-section">
-      <h2>Player Results</h2>
-      <p>
-        Here you’ll find the full breakdown of nightly results, including finishes, points,
-        and any bonuses. This feeds directly into the leaderboard standings.
-      </p>
-      <div class="table-wrapper">
-        <div id="results-table"></div>
-      </div>
-    </section>
-
-    <!-- Leaderboard -->
-    <section id="leaderboard" class="content-section">
-      <h2>Leaderboard</h2>
-      <p>
-        The leaderboard reflects the cumulative performance across the season. Top three
-        positions are highlighted to celebrate the current front-runners.
-      </p>
-      <div class="table-wrapper">
-        <div id="leaderboard-table"></div>
-      </div>
-    </section>
-
-    <!-- Players -->
-    <section id="players" class="content-section">
-      <h2>Players</h2>
-      <p>
-        A list of all players taking part in the 2025 season 
-      </p>
-      <div class="table-wrapper">
-        <div id="players-table"></div>
-      </div>
-    </section>
-
-    <!-- Charts -->
-      <section id="charts" class="content-section">
-        <h2>Charts</h2>
-
+    <!-- 2025 Conclusion -->
+    <section id="s2025-conclusion" class="content-section">
+        <h2>Season Conclusion — 2025</h2>
+        <p>The 2025 Letterkenny Poker Hunter League has officially come to a close...</p>
         <div class="chart-block">
-          <h3>League Points</h3>
-          <img src="images/league_points.png" alt="League Points chart">
+            <h3>League Points</h3>
+            <img src="images/league_points.png" alt="League Points chart">
         </div>
+    </section>
 
-        <div class="chart-block">
-          <h3>2025 Total Return on Investment</h3>
-          <img src="images/roi_2025.png" alt="2025 ROI chart">
+    <!-- ========================= -->
+    <!-- SEASON 2026 CONTENT -->
+    <!-- ========================= -->
+
+    <section id="s2026-intro" class="content-section">
+        <h2>Introduction — Season 2026</h2>
+        <p>Season 2026 kicks off with a refreshed structure and Champions League format.</p>
+    </section>
+
+    <section id="s2026-results" class="content-section">
+        <h2>Results — 2026</h2>
+        <p>Results will appear here.</p>
+    </section>
+
+    <section id="s2026-leaderboard" class="content-section">
+        <h2>Leaderboard — 2026</h2>
+        <p>Leaderboard will appear here.</p>
+    </section>
+
+    <section id="s2026-conclusion" class="content-section">
+        <h2>Conclusion — 2026</h2>
+        <p>Season summary will appear here.</p>
+    </section>
+
+    <!-- ========================= -->
+    <!-- GLOBAL SECTIONS -->
+    <!-- ========================= -->
+
+    <section id="global-structure" class="content-section">
+        <h2>Game Structure</h2>
+        <div class="table-wrapper">
+            <div id="structure-table"></div>
         </div>
+    </section>
 
-        <div class="chart-block">
-          <h3>Total Spend to Date</h3>
-          <img src="images/total_spend.png" alt="Total Spend chart">
+    <section id="global-hosts" class="content-section">
+        <h2>Hosts & Schedule</h2>
+        <div class="table-wrapper">
+            <div id="hosts-table"></div>
         </div>
+    </section>
 
-        <div class="chart-block">
-          <h3>Tournament Hosts</h3>
-          <img src="images/tournament_hosts.png" alt="Tournament Hosts chart">
+    <section id="global-players" class="content-section">
+        <h2>Players</h2>
+        <div class="table-wrapper">
+            <div id="players-table"></div>
         </div>
-      </section>
+    </section>
 
-    <!-- Conclusion -->
-    <section id="conclusion" class="content-section">
-      <h2>Season Conclusion</h2>
+</main>
 
-      <p>
-        The 2025 Letterkenny Poker Hunter League has officially come to a close, marking another year of dumb-ass plays, stupid rebuys, and unforgettable nights around the table.
-      </p>
+<!-- JAVASCRIPT -->
+<script src="js/tableloader.js"></script>
 
-      <p>
-        With a final night of Bollywood nut farts galore! Brendan attacked the table with his mighty full house, only for Captain Morgan to demolish his house like mica bricks with the poker of 2s.
-      </p>
+<script>
+// Season switching
+document.querySelectorAll('.season-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
 
-      <p>
-        After months going all-in like at an all-inclusive buffet, <strong>Kevin Lee</strong> emerged as the 2025 League Champion. If only Arsenal follows his lead into May 2026.
-      </p>
+        // Toggle active button
+        document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-      <p>
-        <strong>How could the Events Manager allow such multiple illegal rebuys!</strong>
-      </p>
+        // Toggle season navs
+        const season = btn.dataset.season;
+        document.querySelectorAll('.season-nav').forEach(nav => nav.classList.remove('active'));
+        document.querySelector(`.season-${season}`).classList.add('active');
 
-      <p>
-        <em>Thanks to the Event Manager and Champions League qualifier, Martin — ROI Champion!</em>
-      </p>
-      <div class="chart-block">
-          <h3>League Points</h3>
-          <img src="images/league_points.png" alt="League Points chart">
-        </div>
+        // Hide all season sections
+        document.querySelectorAll('[id^="s2025"], [id^="s2026"]').forEach(sec => sec.classList.remove('active'));
 
-       <p>
-        <h2>2026</h2>
-       </p>
+        // Show default section for selected season
+        document.querySelector(`#s${season}-intro`).classList.add('active');
+    });
+});
 
-        <p>
-          The 2026 season kicks off on Friday, 2nd January 2026. A refreshed league structure comes into play this year, with strict game rules and a brand‑new competitive format. Players can also opt into the Champions League Final at the end of the year.
-        </p>
+// Section switching
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
 
-        <p>
-          The Champions League entry fee is €100 per player, spread across the year (typically €10 over 10 nights). We aim to play 12 league games, with each player’s <strong>best 10 performances</strong> counting towards their final league points. These points become your <strong>starting stack</strong> in the end‑of‑year Champions League Tournament, which is free to enter for all paid‑up players.
-        </p>
-        <p>
-          Any player who cannot play the full 10 games, can pay the balance due and will receive 20 league points per €10, which equates to 1,000 in tournament chips
-        </p>
+        const target = link.dataset.target;
 
-        <p><strong>Champions League Payout Structure:</strong></p>
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
 
-        <ul>
-          <li>Overall League Winner – 20%</li>
-          <li>Tournament Winner     – 25%</li>
-          <li>Tournament 2nd Place  – 15%</li>
-          <li>Tournament 3rd Place  – 12%</li>
-          <li>Tournament 4th Place  – 10%</li>
-          <li>Tournament 5th Place  – 8%</li>
-          <li>Tournament 6th Place  – 5%</li>
-          <li>Tournament 7th Place  – 5%</li>
-          <li>NB... Any player who has less than 7,500 in chips amassed throughout the leage, will begin the final with a starting stack of 7,500  </li>
-        </ul>
+        // Show selected section
+        document.getElementById(target).classList.add('active');
 
-
-      </section>
-
-
-  </main>
-
-  <script src="js/tableloader.js"></script>
+        // Update active link
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+</script>
 
 </body>
-
 </html>
