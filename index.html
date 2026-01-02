@@ -1,247 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>The 2002 Cardroom</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <title>The 2002 Cardroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
 
     <div class="sidebar-header">
-        <h1>The 2002 Cardroom</h1>
+      <h1>The 2002 Cardroom</h1>
 
-        <!-- Season Switcher -->
-        <div class="season-switcher">
-            <button class="season-btn active" data-season="2025">Season 2025</button>
-            <button class="season-btn" data-season="2026">Season 2026</button>
-        </div>
+      <!-- Season Switcher -->
+      <div class="season-switcher">
+        <button class="season-btn active" data-season="2025">Season 2025</button>
+        <button class="season-btn" data-season="2026">Season 2026</button>
+      </div>
     </div>
 
     <!-- Hamburger (mobile only) -->
     <div class="hamburger" onclick="document.querySelector('.sidebar-nav.active').classList.toggle('open')">
-        ☰ Menu
+      ☰ Menu
     </div>
 
     <!-- Season Navigation: 2025 -->
     <nav class="sidebar-nav season-nav season-2025 active">
-        <button class="nav-link active" data-target="s2025-intro">Introduction</button>
-        <button class="nav-link" data-target="s2025-results">Results</button>
-        <button class="nav-link" data-target="s2025-leaderboard">Leaderboard</button>
-        <button class="nav-link" data-target="s2025-conclusion">Conclusion</button>
+      <button class="nav-link" data-target="s2025-results">Results</button>
+      <button class="nav-link" data-target="s2025-leaderboard">Leaderboard</button>
+      <button class="nav-link" data-target="s2025-conclusion">Conclusion</button>
     </nav>
 
     <!-- Season Navigation: 2026 -->
     <nav class="sidebar-nav season-nav season-2026">
-        <button class="nav-link" data-target="s2026-intro">Introduction</button>
-        <button class="nav-link" data-target="s2026-results">Results</button>
-        <button class="nav-link" data-target="s2026-leaderboard">Leaderboard</button>
-        <button class="nav-link" data-target="s2026-conclusion">Conclusion</button>
+      <button class="nav-link" data-target="s2026-results">Results</button>
+      <button class="nav-link" data-target="s2026-leaderboard">Leaderboard</button>
+      <button class="nav-link" data-target="s2026-conclusion">Conclusion</button>
     </nav>
 
-    <hr>
+    <hr />
 
     <!-- GLOBAL NAVIGATION -->
     <nav class="sidebar-nav global-nav">
-        <button class="nav-link" data-target="global-structure">Game Structure</button>
-        <button class="nav-link" data-target="global-hosts">Hosts & Schedule</button>
-        <button class="nav-link" data-target="global-players">Players</button>
+      <button class="nav-link active" data-target="global-intro">Introduction</button>
+      <button class="nav-link" data-target="global-structure">Game Structure</button>
+      <button class="nav-link" data-target="global-hosts">Hosts &amp; Schedule</button>
+      <button class="nav-link" data-target="global-players">Players</button>
     </nav>
 
-    <hr>
+  </aside>
 
-    <!-- Dark Mode -->
-    <button class="nav-link dark-mode-toggle" onclick="document.body.classList.toggle('dark-mode')">
-        🌙 Dark Mode
-    </button>
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <!-- ========================= -->
+    <!-- GLOBAL INTRODUCTION -->
+    <!-- ========================= -->
 
-</aside>
+    <section id="global-intro" class="content-section active">
+      <h2>Introduction</h2>
+      <h3>The 2002 Cardroom — Where Legends Are Made</h3>
 
-<!-- MAIN CONTENT -->
-<main class="content">
+      <ul>
+        <li>Event Manager: Martin Hunter</li>
+        <li>Tournament Director: Ciaran Lynch</li>
+      </ul>
+
+      <p><strong>The 2002 Cardroom</strong> hosts exclusive, home‑based poker events in plush surroundings across the Letterkenny area.</p>
+      <p>Games are strictly invite‑only. Some of the OG players have been gathering since 2002 — over 23 years of cards, craic, and questionable decisions.</p>
+
+      <div class="ethos-box">
+        <h3>League Ethos</h3>
+        <p>Competitive poker, a few beers, dramatic rebuys, and the occasional Bollywood bluff.</p>
+      </div>
+
+      <div class="how-it-works">
+        <h3>How the Tournament Works</h3>
+        <ul>
+          <li>€1 = 1000 chips</li>
+          <li>€30 entry = 30,000 chips</li>
+          <li>1 rebuy/top-up allowed (€20 = 20,000 chips)</li>
+          <li>Levels 1–5: 30 mins, Level 6: 45 mins</li>
+          <li>Breaks after Levels 3 & 5</li>
+          <li>End of Level 6: Chips ÷ 1000 = cash-out</li>
+          <li>Cash-out × 50 = league points</li>
+        </ul>
+      </div>
+
+      <blockquote class="league-quote">
+        “We strive for excellence… but settle for whatever happens on the night.”
+        <span>— Martin</span>
+      </blockquote>
+
+      <div class="intro-images">
+        <figure>
+          <img src="images/poker_setup_1.jpg" alt="Poker chip rack">
+          <figcaption>Chip rack and dealer setup</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/poker_table_2025.jpg" alt="Poker table">
+          <figcaption>Opening night table</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/table_top.png" alt="Poker table top">
+          <figcaption>Table top reserve</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <!-- ========================= -->
     <!-- SEASON 2025 CONTENT -->
     <!-- ========================= -->
 
-    <!-- 2025 Introduction -->
-    <section id="s2025-intro" class="content-section active">
-        <h2>Introduction — Season 2025</h2>
-        <h3>The 2002 Cardroom — Where Legends Are Made</h3>
-
-        <ul>
-            <li>Event Manager: Martin Hunter</li>
-            <li>Tournament Director: Ciaran Lynch</li>
-        </ul>
-
-        <p><strong>The 2002 Cardroom</strong> hosts exclusive, home‑based poker events in plush surroundings across the Letterkenny area.</p>
-        <p>Games are strictly invite‑only. Some of the OG players have been gathering since 2002 — over 23 years of cards, craic, and questionable decisions.</p>
-
-        <div class="ethos-box">
-            <h3>League Ethos</h3>
-            <p>Competitive poker, a few beers, dramatic rebuys, and the occasional Bollywood bluff.</p>
-        </div>
-
-        <div class="how-it-works">
-            <h3>How the Tournament Works</h3>
-            <ul>
-                <li>€1 = 1000 chips</li>
-                <li>€30 entry = 30,000 chips</li>
-                <li>1 rebuy/top-up allowed (€20 = 20,000 chips)</li>
-                <li>Levels 1–5: 30 mins, Level 6: 45 mins</li>
-                <li>Breaks after Levels 3 & 5</li>
-                <li>End of Level 6: Chips ÷ 1000 = cash-out</li>
-                <li>Cash-out × 50 = league points</li>
-            </ul>
-        </div>
-
-        <blockquote class="league-quote">
-            “We strive for excellence… but settle for whatever happens on the night.”
-            <span>— Martin</span>
-        </blockquote>
-
-        <div class="intro-images">
-            <figure>
-                <img src="images/poker_setup_1.jpg" alt="Poker chip rack">
-                <figcaption>Chip rack and dealer setup</figcaption>
-            </figure>
-
-            <figure>
-                <img src="images/poker_table_2025.jpg" alt="Poker table">
-                <figcaption>Opening night table</figcaption>
-            </figure>
-
-            <figure>
-                <img src="images/table_top.png" alt="Poker table top">
-                <figcaption>Table top reserve</figcaption>
-            </figure>
-        </div>
-    </section>
-
     <!-- 2025 Results -->
     <section id="s2025-results" class="content-section">
-        <h2>Player Results — 2025</h2>
-        <div class="table-wrapper">
-            <div id="results-table"></div>
-        </div>
+      <h2>Player Results — 2025</h2>
+      <div class="table-wrapper">
+        <div id="results-table"></div>
+      </div>
     </section>
 
     <!-- 2025 Leaderboard -->
     <section id="s2025-leaderboard" class="content-section">
-        <h2>Leaderboard — 2025</h2>
-        <div class="table-wrapper">
-            <div id="leaderboard-table"></div>
-        </div>
+      <h2>Leaderboard — 2025</h2>
+      <div class="table-wrapper">
+        <div id="leaderboard-table"></div>
+      </div>
     </section>
 
     <!-- 2025 Conclusion -->
     <section id="s2025-conclusion" class="content-section">
-        <h2>Season Conclusion — 2025</h2>
-        <p>The 2025 Letterkenny Poker Hunter League has officially come to a close...</p>
-        <div class="chart-block">
-            <h3>League Points</h3>
-            <img src="images/league_points.png" alt="League Points chart">
-        </div>
+      <h2>Season Conclusion — 2025</h2>
+      <p>The 2025 Letterkenny Poker Hunter League has officially come to a close...</p>
+      <div class="chart-block">
+        <h3>League Points</h3>
+        <img src="images/league_points.png" alt="League Points chart">
+      </div>
     </section>
 
     <!-- ========================= -->
     <!-- SEASON 2026 CONTENT -->
     <!-- ========================= -->
 
-    <section id="s2026-intro" class="content-section">
-        <h2>Introduction — Season 2026</h2>
-        <p>Season 2026 kicks off with a refreshed structure and Champions League format.</p>
-    </section>
-
+    <!-- 2026 Results -->
     <section id="s2026-results" class="content-section">
-        <h2>Results — 2026</h2>
-        <p>Results will appear here.</p>
+      <h2>Player Results — 2026</h2>
+      <div class="table-wrapper">
+        <div id="results-table-2026"></div>
+      </div>
     </section>
 
+    <!-- 2026 Leaderboard -->
     <section id="s2026-leaderboard" class="content-section">
-        <h2>Leaderboard — 2026</h2>
-        <p>Leaderboard will appear here.</p>
+      <h2>Leaderboard — 2026</h2>
+      <div class="table-wrapper">
+        <div id="leaderboard-table-2026"></div>
+      </div>
     </section>
 
+    <!-- 2026 Conclusion -->
     <section id="s2026-conclusion" class="content-section">
-        <h2>Conclusion — 2026</h2>
-        <p>Season summary will appear here.</p>
+      <h2>Season Conclusion — 2026</h2>
+      <p>Season summary will appear here.</p>
     </section>
 
     <!-- ========================= -->
     <!-- GLOBAL SECTIONS -->
     <!-- ========================= -->
 
+    <!-- Game Structure -->
     <section id="global-structure" class="content-section">
-        <h2>Game Structure</h2>
-        <div class="table-wrapper">
-            <div id="structure-table"></div>
-        </div>
+      <h2>Game Structure</h2>
+      <div class="table-wrapper">
+        <div id="structure-table"></div>
+      </div>
     </section>
 
+    <!-- Hosts & Schedule -->
     <section id="global-hosts" class="content-section">
-        <h2>Hosts & Schedule</h2>
-        <div class="table-wrapper">
-            <div id="hosts-table"></div>
-        </div>
+      <h2>Hosts &amp; Schedule</h2>
+      <div class="table-wrapper">
+        <div id="hosts-table"></div>
+      </div>
     </section>
 
+    <!-- Players -->
     <section id="global-players" class="content-section">
-        <h2>Players</h2>
-        <div class="table-wrapper">
-            <div id="players-table"></div>
-        </div>
+      <h2>Players</h2>
+      <div class="table-wrapper">
+        <div id="players-table"></div>
+      </div>
     </section>
 
-</main>
+  </main>
 
-<!-- JAVASCRIPT -->
-<script src="js/tableloader.js"></script>
-
-<script>
-// Season switching
-document.querySelectorAll('.season-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-
-        // Toggle active button
-        document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // Toggle season navs
-        const season = btn.dataset.season;
-        document.querySelectorAll('.season-nav').forEach(nav => nav.classList.remove('active'));
-        document.querySelector(`.season-${season}`).classList.add('active');
-
-        // Hide all season sections
-        document.querySelectorAll('[id^="s2025"], [id^="s2026"]').forEach(sec => sec.classList.remove('active'));
-
-        // Show default section for selected season
-        document.querySelector(`#s${season}-intro`).classList.add('active');
-    });
-});
-
-// Section switching
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-
-        const target = link.dataset.target;
-
-        // Hide all sections
-        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-
-        // Show selected section
-        document.getElementById(target).classList.add('active');
-
-        // Update active link
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-    });
-});
-</script>
+  <!-- JAVASCRIPT -->
+  <script src="js/tableloader.js"></script>
 
 </body>
 </html>
+
+
+
+
+
