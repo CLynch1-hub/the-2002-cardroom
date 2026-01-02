@@ -95,3 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
   createTable("players-table", "data/Poker Players.csv");
   createTable("leaderboard-table", "data/Leaderboard.csv");
 });
+
+// Ensure only active season nav is visible on load
+const activeSeason = document.querySelector('.season-btn.active')?.dataset.season;
+document.querySelectorAll('.season-nav').forEach(nav => nav.classList.remove('active'));
+document.querySelector(`.season-${activeSeason}`).classList.add('active');
+
