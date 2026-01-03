@@ -48,11 +48,3 @@ Game_Number,PlayerNo,BuyIn,Rebuy,CashOut,ROI,PlayerName
 7,6,€30.00,€40.00,€70.00,€0.00,Kevin Lee
 7,1,€30.00,€0.00,€45.00,€15.00,Martin Hunter
 7,5,€30.00,€0.00,€40.00,€10.00,Morgan Mooney
-8,2,30,20,45,-5,Ciaran Lynch
-8,7,30,20,50,0,Brendan Stevenson
-8,3,30,20,25,-25,Barry Hunter
-8,12,30,20,25,-25,Ryan **
-8,1,30,20,0,-50,Martin Hunter
-8,11,30,20,0,-50,Mark Hunter
-8,5,30,20,115,65,Morgan Mooney
-8,6,30,20,140,90,Kevin Lee
