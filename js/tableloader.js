@@ -131,10 +131,11 @@ createTable("hosts-table", "data/Hosts.csv");
 createTable("players-table", "data/Poker Players.csv");
 
 // 2025 tables
-createTable("results-table", "data/Player Results-2025.csv");
-createTable("leaderboard-table", "data/Leaderboard-2025.csv");
+createTable("results-table-2025", "data/Player Results-2025.csv");
+createTable("leaderboard-table-2025", "data/Leaderboard-2025.csv");
 
 // 2026 tables
 createTable("results-table-2026", "data/Player Results-2026.csv");
 createTable("leaderboard-table-2026", "data/Leaderboard-2026.csv");
 
+});
