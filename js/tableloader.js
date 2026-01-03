@@ -124,13 +124,17 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(`.season-${activeSeason}`)?.classList.add("active");
 
   // Load all CSV-driven tables
-  createTable("structure-table", "data/Game Structure.csv");
-  createTable("hosts-table", "data/Hosts.csv");
-  createTable("results-table", "data/Player Game Results.csv");
-  createTable("players-table", "data/Poker Players.csv");
-  createTable("leaderboard-table", "data/Leaderboard.csv");
 
-  // Future seasons (optional)
-  // createTable("results-table-2026", "data/Player Game Results 2026.csv");
-  // createTable("leaderboard-table-2026", "data/Leaderboard 2026.csv");
-});
+// Global tables
+createTable("structure-table", "data/Game Structure.csv");
+createTable("hosts-table", "data/Hosts.csv");
+createTable("players-table", "data/Poker Players.csv");
+
+// 2025 tables
+createTable("results-table", "data/Player Results-2025.csv");
+createTable("leaderboard-table", "data/Leaderboard-2025.csv");
+
+// 2026 tables
+createTable("results-table-2026", "data/Player Results-2026.csv");
+createTable("leaderboard-table-2026", "data/Leaderboard-2026.csv");
+
