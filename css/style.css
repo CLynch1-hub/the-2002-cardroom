@@ -426,3 +426,17 @@ h3 {
   opacity: 0.85;
 }
 
+.content-section h3 {
+  margin-top: 32px;
+}
+
+
+.night-intro-2026::before {
+  font-size: 16px;
+}
+
+.night-intro-2026:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: 0.2s ease;
+}
+
