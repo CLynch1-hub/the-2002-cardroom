@@ -58,52 +58,27 @@ body {
 /* ====================================================
    NAVIGATION BUTTONS
    ==================================================== */
-
-/* DESKTOP SIDEBAR (default) */
-.sidebar {
-  width: 250px;          /* or whatever your desktop width is */
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  padding: 20px;
-  background: #1a1a1a;
-  border-right: 2px solid rgba(255, 215, 0, 0.3);
+.nav-link {
+  background: #2a2a2a;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #f5f5f5;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
 }
 
-/* MOBILE ONLY */
-@media (max-width: 768px) {
-
-  /* Sidebar becomes top bar */
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 10px 15px;
-    background: #1a1a1a;
-    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-    border-top: 2px solid rgba(255, 215, 0, 0.3);
-
-    transform: translateY(-100%);
-    pointer-events: none;
-    transition: transform 0.3s ease;
-  }
-
-  .sidebar.open {
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  /* Push content down so it doesn't sit under the hidden bar */
-  body {
-    padding-top: 60px;
-  }
+.nav-link:hover {
+  background: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-
-
+.nav-link.active {
+  background: gold;
+  color: #000;
+}
 
 /* ====================================================
    TYPOGRAPHY
@@ -116,10 +91,6 @@ h2 {
 h3 {
   margin-bottom: 6px;
 }
-
-
-
-
 
 /* ====================================================
    TABLES
@@ -167,20 +138,6 @@ tbody tr:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Leaderboard top 3 highlight */
-#leaderboard-table tbody tr:nth-child(1) {
-  background: rgba(255, 215, 0, 0.25);
-  font-weight: bold;
-}
-
-#leaderboard-table tbody tr:nth-child(2) {
-  background: rgba(192, 192, 192, 0.25);
-}
-
-#leaderboard-table tbody tr:nth-child(3) {
-  background: rgba(205, 127, 50, 0.25);
-}
-
 /* ====================================================
    CHARTS
    ==================================================== */
@@ -208,13 +165,6 @@ tbody tr:hover {
   border-radius: 4px;
 }
 
-.chart-card figcaption,
-.chart-block figcaption {
-  margin-top: 6px;
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
 /* ====================================================
    INTRO IMAGE GRID
    ==================================================== */
@@ -231,19 +181,6 @@ tbody tr:hover {
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-
-.intro-images img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-}
-
-.intro-images figcaption {
-  margin-top: 6px;
-  font-size: 0.85rem;
-  opacity: 0.85;
 }
 
 /* ====================================================
@@ -270,56 +207,47 @@ tbody tr:hover {
   opacity: 0.85;
 }
 
-.night-intro-2026:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: 0.2s ease;
-}
-
 /* ====================================================
-   RESPONSIVE LAYOUT — MOBILE & TABLET
+   MOBILE — SLIDE DOWN SIDEBAR
    ==================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
 
-  /* Sidebar becomes top bar */
+  /* Sidebar becomes hidden top bar */
   .sidebar {
     width: 100%;
     height: auto;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 10px 15px;
-    border-right: none;
+    background: #1a1a1a;
     border-bottom: 2px solid rgba(255, 215, 0, 0.3);
     border-top: 2px solid rgba(255, 215, 0, 0.3);
+
+    transform: translateY(-100%);
+    pointer-events: none;
+    transition: transform 0.3s ease;
   }
 
+  .sidebar.open {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Hamburger visible on mobile */
   .hamburger {
     display: block;
   }
 
-  .sidebar-nav {
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
-    margin-bottom: 10px;
-  }
-
-  .sidebar-nav.open {
-    display: flex !important;
-  }
-
+  /* Content no longer offset by desktop sidebar */
   .content {
     margin-left: 0;
     padding: 15px;
   }
 
-  .table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  table {
-    min-width: 500px;
+  /* Push content below the hidden bar */
+  body {
+    padding-top: 60px;
   }
 
   .charts-grid {
@@ -342,10 +270,6 @@ tbody tr:hover {
     display: none;
   }
 
-  tbody {
-    display: block;
-  }
-
   tbody tr {
     display: block;
     margin-bottom: 12px;
@@ -365,24 +289,4 @@ tbody tr:hover {
   tbody td:last-child {
     border-bottom: none;
   }
-
-  tbody td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: gold;
-    margin-right: 10px;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
 }
-
-/* ====================================================
-   OPTIONAL CONTAINER
-   ==================================================== */
-#container {
-  max-width: 800px;
-  width: 95%;
-  margin: 0 auto;
-}
-
-
