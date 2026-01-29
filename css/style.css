@@ -65,13 +65,23 @@ thead {
   display: table-header-group;
 }
 
+tbody {
+  display: table-row-group;
+}
+
 tbody tr {
   display: table-row;
 }
 
+th {
+  text-align: left; /* ← THIS FIXES YOUR ISSUE */
+}
+
 td {
   display: table-cell;
+  text-align: left;
 }
+
 
 
 /* ====================================================
