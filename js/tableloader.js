@@ -143,25 +143,30 @@ function buildTable(containerId, rows) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  // First row is treated as header labels
   const headers = rows[0];
 
-  let html = "<table><tbody>";
+  let html = "<table>";
 
-  // Start from row 1 (skip header row)
+  // Build THEAD
+  html += "<thead><tr>";
+  headers.forEach(h => {
+    html += `<th>${h}</th>`;
+  });
+  html += "</tr></thead>";
+
+  // Build TBODY
+  html += "<tbody>";
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
     html += "<tr>";
-
     row.forEach((cell, index) => {
       const label = headers[index] || "";
       html += `<td data-label="${label}">${cell}</td>`;
     });
-
     html += "</tr>";
   }
-
   html += "</tbody></table>";
+
   container.innerHTML = html;
 }
 
