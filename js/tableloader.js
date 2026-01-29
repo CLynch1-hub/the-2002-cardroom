@@ -93,35 +93,35 @@ function setupNav() {
 // ----------------------------------------------------
 // SEASON SWITCHER
 // ----------------------------------------------------
-// function setupSeasonSwitcher() {
- // const seasonButtons = document.querySelectorAll(".season-btn");
+function setupSeasonSwitcher() {
+  const seasonButtons = document.querySelectorAll(".season-btn");
 //
- // seasonButtons.forEach(btn => {
- //   btn.addEventListener("click", () => {
- //     const season = btn.dataset.season;
+  seasonButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const season = btn.dataset.season;
 //
       // Update active season button
-//      seasonButtons.forEach(b => b.classList.remove("active"));
-//      btn.classList.add("active");
-//
+      seasonButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
       // Show correct season nav
- //     document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
-//      document.querySelector(`.season-${season}`)?.classList.add("active");
-//    });
-//  });
-//}
+      document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
+      document.querySelector(`.season-${season}`)?.classList.add("active");
+    });
+  });
+}
 
 // ----------------------------------------------------
 // INITIALISE ON LOAD
 // ----------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
-  // setupSeasonSwitcher();
+   setupSeasonSwitcher();
 
   // Ensure correct season nav is visible on load
-  // const activeSeason = document.querySelector(".season-btn.active")?.dataset.season;
-  // document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
-  // document.querySelector(`.season-${activeSeason}`)?.classList.add("active");
+   const activeSeason = document.querySelector(".season-btn.active")?.dataset.season;
+   document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
+   document.querySelector(`.season-${activeSeason}`)?.classList.add("active");
 
   // Load all CSV-driven tables
 
