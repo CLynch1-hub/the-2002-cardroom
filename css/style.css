@@ -12,6 +12,7 @@ body {
   color: #f5f5f5;
 }
 
+
 /* ====================================================
    SIDEBAR — DESKTOP DEFAULT
    ==================================================== */
@@ -73,14 +74,17 @@ tbody tr {
   display: table-row;
 }
 
+
+
 th {
-  text-align: left; /* ← THIS FIXES YOUR ISSUE */
+  text-align: left;
 }
 
 td {
-  display: table-cell;
   text-align: left;
 }
+
+
 
 
 
@@ -160,7 +164,7 @@ td {
   }
 }
 
-/* ====================================================
+ /* ====================================================
    VERY SMALL SCREENS — CARD STYLE TABLES
    ==================================================== */
 @media (max-width: 480px) {
@@ -197,4 +201,17 @@ td {
     border-bottom: none;
   }
 }
+
+/* ====================================================
+   DESKTOP OVERRIDE — MUST COME LAST
+   ==================================================== */
+@media (min-width: 481px) {
+  tbody td {
+    display: table-cell !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    flex-direction: row !important;
+  }
+}
+
 
