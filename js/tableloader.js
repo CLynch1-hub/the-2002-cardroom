@@ -96,19 +96,22 @@ const allSections = $all('.content-section');
 // SIDEBAR TOGGLE (MOBILE)
 // =====================================================
 if (hamburger) {
-  hamburger.addEventListener('click', () => {
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevents the document click handler from firing
     sidebar.classList.toggle('open');
   });
 }
 
 document.addEventListener('click', (e) => {
   const insideSidebar = sidebar.contains(e.target);
-  const onHamburger = hamburger && hamburger.contains(e.target);
 
-  if (!insideSidebar && !onHamburger) {
+  // If click is outside the sidebar, close it
+  if (!insideSidebar) {
     sidebar.classList.remove('open');
   }
 });
+
+
 
 // =====================================================
 // SECTION SHOW/HIDE
