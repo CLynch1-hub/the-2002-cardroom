@@ -54,6 +54,26 @@ body {
   display: block;
 }
 
+/* Force desktop tables to behave normally */
+table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tbody tr {
+  display: table-row;
+}
+
+td {
+  display: table-cell;
+}
+
+
 /* ====================================================
    NAVIGATION BUTTONS
    ==================================================== */
