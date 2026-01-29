@@ -170,3 +170,34 @@ function buildTable(containerId, rows) {
   container.innerHTML = html;
 }
 
+// =====================================================
+// CSV PARSER + LOADER
+// =====================================================
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  return lines.map(line =>
+    line.split(",").map(cell => cell.trim().replace(/^"|"$/g, ""))
+  );
+}
+
+async function loadCSV(path) {
+  const response = await fetch(path);
+  const text = await response.text();
+  return parseCSV(text);
+}
+
+
+// Load all CSV-driven tables
+
+// Global tables
+loadCSV("data/structure.csv").then(rows => buildTable("structure-table", rows));
+loadCSV("data/hosts.csv").then(rows => buildTable("hosts-table", rows));
+loadCSV("data/players.csv").then(rows => buildTable("players-table", rows));
+
+// 2025 tables
+loadCSV("data/results-2025.csv").then(rows => buildTable("results-table-2025", rows));
+loadCSV("data/leaderboard2025.csv").then(rows => buildTable("leaderboard-table-2025", rows));
+
+// 2026 tables
+loadCSV("data/results-2026.csv").then(rows => buildTable("results-table-2026", rows));
+loadCSV("data/leaderboard2026.csv").then(rows => buildTable("leaderboard-table-2026", rows));
