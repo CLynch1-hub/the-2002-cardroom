@@ -27,15 +27,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 1000; /* ensures sidebar sits above content */
 }
 
 /* Hamburger hidden on desktop */
 .hamburger {
   display: none;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   color: gold;
-  margin-bottom: 8px;
 }
 
 /* ====================================================
@@ -48,7 +48,6 @@ body {
 
 .content-section {
   display: none;
-  padding-bottom: 20px;
 }
 
 .content-section.active {
@@ -81,133 +80,6 @@ body {
 }
 
 /* ====================================================
-   TYPOGRAPHY
-   ==================================================== */
-h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-h3 {
-  margin-bottom: 6px;
-}
-
-/* ====================================================
-   TABLES
-   ==================================================== */
-.table-wrapper {
-  margin-top: 10px;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #1e1e1e;
-  position: relative;
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #1e1e1e;
-  color: #f5f5f5;
-  font-size: 0.95rem;
-}
-
-thead {
-  background: #232323;
-}
-
-table thead th {
-  position: sticky;
-  top: 0;
-  background: #232323;
-  z-index: 2;
-}
-
-th, td {
-  padding: 8px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: left;
-}
-
-tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-tbody tr:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* ====================================================
-   CHARTS
-   ==================================================== */
-.charts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 10px;
-}
-
-.chart-card,
-.chart-block {
-  background: #1e1e1e;
-  border-radius: 6px;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-bottom: 20px;
-}
-
-.chart-card img,
-.chart-block img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-}
-
-/* ====================================================
-   INTRO IMAGE GRID
-   ==================================================== */
-.intro-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 15px;
-}
-
-.intro-images figure {
-  background: #1e1e1e;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-
-/* ====================================================
-   SPECIAL INTRO BOX (2026)
-   ==================================================== */
-.night-intro-2026 {
-  border: 1px solid #ccc;
-  padding: 10px 14px 10px 40px;
-  margin: 12px 0 20px 0;
-  border-radius: 8px;
-  background: #fffdf7;
-  font-style: italic;
-  color: #444;
-  position: relative;
-}
-
-.night-intro-2026::before {
-  content: "♠️";
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  opacity: 0.85;
-}
-
-/* ====================================================
    MOBILE — SLIDE DOWN SIDEBAR
    ==================================================== */
 @media (max-width: 768px) {
@@ -222,11 +94,10 @@ tbody tr:hover {
     padding: 10px 15px;
     background: #1a1a1a;
     border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-    border-top: 2px solid rgba(255, 215, 0, 0.3);
-
     transform: translateY(-100%);
     pointer-events: none;
     transition: transform 0.3s ease;
+    z-index: 1000;
   }
 
   .sidebar.open {
@@ -238,31 +109,26 @@ tbody tr:hover {
   .hamburger {
     display: block;
     position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 9999;
+    top: 15px;
+    left: 15px;
+    z-index: 2000;
     background: #1a1a1a;
     padding: 8px 12px;
     border: 1px solid rgba(255, 215, 0, 0.3);
     border-radius: 4px;
   }
 
-  /* Content no longer offset by desktop sidebar */
+  /* Content full width */
   .content {
     margin-left: 0;
     padding: 15px;
   }
 
-  /* Push content below the hidden bar */
+  /* Push content below hidden bar */
   body {
     padding-top: 60px;
   }
-
-  .charts-grid {
-    grid-template-columns: 1fr;
-  }
 }
-
 
 /* ====================================================
    VERY SMALL SCREENS — CARD STYLE TABLES
