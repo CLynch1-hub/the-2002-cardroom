@@ -58,12 +58,12 @@ async function buildStructureTable() {
 }
 
 async function buildResults2025() {
-  const rows = await loadCSV("data/results2025.csv");
+  const rows = await loadCSV("data/results-2025.csv");
   buildTable("results-table-2025", rows);
 }
 
 async function buildResults2026() {
-  const rows = await loadCSV("data/results2026.csv");
+  const rows = await loadCSV("data/results-2026.csv");
   buildTable("results-table-2026", rows);
 }
 
