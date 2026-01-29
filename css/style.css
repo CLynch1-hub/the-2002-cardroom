@@ -164,10 +164,30 @@ td {
   }
 }
 
+
+  /* ====================================================
+   CREATE GRIDLINES FOR TABLES
+   ==================================================== */
+   /* Desktop table gridlines */
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 10px;
+    }
+
+    thead th {
+      background: rgba(255, 255, 255, 0.08);
+      font-weight: 600;
+    }
+
+
  /* ====================================================
    VERY SMALL SCREENS — CARD STYLE TABLES
    ==================================================== */
-@media (max-width: 480px) {
+  @media (max-width: 480px) {
 
   table {
     display: block;
@@ -214,4 +234,29 @@ td {
   }
 }
 
+/* ====================================================
+   CREATE BORDER THEME FOR 2026 BLOG HEADINGS
+   ==================================================== */
+.event-highlight {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 10px 16px;
+  margin: 25px 0 15px;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+/* Spade icon before the heading */
+.event-highlight::before {
+  content: "♠";
+  font-size: 1.4rem;
+  color: white;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
 
