@@ -6,35 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
+  <!-- ========================================================= -->
   <!-- SIDEBAR -->
+  <!-- ========================================================= -->
   <aside class="sidebar">
 
     <div class="sidebar-header">
       <h1>The 2002 Cardroom</h1>
 
       <!-- GLOBAL NAVIGATION -->
-    <nav class="sidebar-nav global-nav">
-      <button class="nav-link active" data-target="global-intro">Introduction</button>
-      <button class="nav-link" data-target="global-structure">Game Structure</button>
-      <button class="nav-link" data-target="global-hosts">Hosts &amp; Schedule</button>
-      <button class="nav-link" data-target="global-players">Players</button>
-    </nav>
+      <nav class="sidebar-nav global-nav active">
+        <button class="nav-link active" data-target="global-intro">Introduction</button>
+        <button class="nav-link" data-target="global-structure">Game Structure</button>
+        <button class="nav-link" data-target="global-hosts">Hosts & Schedule</button>
+        <button class="nav-link" data-target="global-players">Players</button>
+      </nav>
 
-      <!-- Season Switcher -->
+      <!-- SEASON SWITCHER -->
       <div class="season-switcher">
         <button class="season-btn active" data-season="2025">Season 2025</button>
         <button class="season-btn" data-season="2026">Season 2026</button>
       </div>
     </div>
 
-    <!-- Hamburger (mobile only) -->
-    <div class="hamburger" onclick="document.querySelector('.sidebar-nav.active').classList.toggle('open')">
-      ☰ Menu
-    </div>
+    <!-- HAMBURGER (MOBILE) -->
+    <div class="hamburger">☰ Menu</div>
 
-    <!-- Season Navigation: 2025 -->
+    <!-- SEASON NAVIGATION: 2025 -->
     <nav class="sidebar-nav season-nav season-2025 active">
       <button class="nav-link" data-target="s2025-blog">2025 Blog</button>
       <button class="nav-link" data-target="s2025-results">Results 2025</button>
@@ -42,7 +43,7 @@
       <button class="nav-link" data-target="s2025-conclusion">Conclusion 2025</button>
     </nav>
 
-    <!-- Season Navigation: 2026 -->
+    <!-- SEASON NAVIGATION: 2026 -->
     <nav class="sidebar-nav season-nav season-2026">
       <button class="nav-link" data-target="s2026-blog">2026 Blog</button>
       <button class="nav-link" data-target="s2026-results">Results 2026</button>
@@ -52,8 +53,6 @@
     </nav>
 
     <hr />
-
-  
 
   </aside>
 
@@ -80,8 +79,6 @@
         <p>Competitive poker, a few beers, dramatic rebuys, and the occasional Bollywood bluff.</p>
       </div>
 
-  
-
       <blockquote class="league-quote">
         “We strive for excellence… and world class poker commentary.”
         <span>— Martin</span>
@@ -106,13 +103,105 @@
     </section>
 
     <!-- ========================= -->
+    <!-- GLOBAL SECTIONS -->
+    <!-- ========================= -->
+
+     <!-- ========================= -->
+    <!-- GAME STRUCTURE -->
+    <!-- ========================= -->
+    <section id="global-structure" class="content-section">
+      <h2>Game Structure</h2>
+
+      <h3> Nightly Tournament Structure</h3>
+
+      <p>
+        The tournament is played over <strong>6 levels</strong>:
+      </p>
+
+      <ul>
+        <li>Levels 1–5: 30 minutes each</li>
+        <li>Level 6: 45 minutes</li>
+        <li>25‑minute break after Level 3</li>
+        <li>15‑minute break after Level 5</li>
+      </ul>
+
+      <p>
+        <strong>Buy‑in:</strong> €30  
+        <br>Starting stack: 30,000 chips (15,000 + free 15,000 add‑on)
+      </p>
+
+      <p>
+        <strong>Rebuy / Top-Up:</strong> €20 = 20,000 chips  
+        <br>Max 1 per game, must be used before the end of Level 5.
+      </p>
+
+      <h3>End of Level 6</h3>
+
+      <ul>
+        <li>Chips ÷ 1000 = cash‑out amount</li>
+        <li>Chips × 50 = league points</li>
+      </ul>
+
+     
+
+      <div class="table-wrapper">
+        <div id="structure-table"></div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- HOSTS & SCHEDULE -->
+    <!-- ========================= -->
+    <section id="global-hosts" class="content-section">
+      <h2>Hosts &amp; Schedule</h2>
+      <div class="table-wrapper">
+        <div id="hosts-table"></div>
+      </div>
+
+      <p>
+        The tournament proposed dates:
+      </p>
+
+      <ul>
+        <li>Event 1 :  2  January 2026 -    Host: Barry</li>
+        <li>Event 2 :  23 January 2026 -    Host: Ciaran</li>
+        <li>Event 3 :  13 February 2026 -   Host: Martin</li>
+        <li>Event 4 :  6 March 2026 -       Host: TBC</li>
+        <li>Event 5 :  3  April 2026 -      Host: TBC</li>
+        <li>Event 6 :  17 April 2026 -      Host: TBC</li>
+        <li>Event 7 :  15 May 2026 -        Host: TBC</li>
+        <li>Event 8 :  19 June 2026 -       Host: TBC</li>
+        <li>Event 9 :  17 July 2026 -       Host: TBC</li>
+        <li>Event 10 : 14 August 2026 -     Host: TBC</li>
+        <li>Event 11 : 11 September 2026 -  Host: TBC</li>
+        <li>Event 12 : 16  October 2026 -   Host: TBC</li>
+        <li>Event 13 : 6 November 2026 -    Host: TBC</li>
+        <li>Event 14 : 4 December 2026 -    Host: TBC</li>
+        <li>Champions League Final will be on December 2026, Date TBC -    Host: TBC</li>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- PLAYERS -->
+    <!-- ========================= -->
+    <section id="global-players" class="content-section">
+      <h2>Players</h2>
+      <div class="table-wrapper">
+        <div id="players-table"></div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
     <!-- SEASON 2025 CONTENT -->
     <!-- ========================= -->
 
     <!-- ========================= -->
+    <!-- 2025 BLOG -->
+    <!-- ========================= -->
 
 
     <section id="s2025-blog" class="content-section">
+      <h1>2025 Season Blog</h1>
       <h2>Highlights of League Opening Night — 24 January 2025... A Storm was brewing</h2>
 
       <p>Storm Éowyn wasn’t enough to put off six brave poker players. Martin abandoned his wife in search of heat and light. Unfortunately, two squad players — Brendan and Steven — have morals!</p>
@@ -152,7 +241,9 @@
 
 
 
-    <!-- 2025 Results -->
+    <!-- ========================= -->
+    <!-- 2025 RESULTS -->
+    <!-- ========================= -->
     <section id="s2025-results" class="content-section">
       <h2>Player Results — 2025</h2>
       <div class="table-wrapper">
@@ -160,7 +251,9 @@
       </div>
     </section>
 
-    <!-- 2025 Leaderboard -->
+    <!-- ========================= -->
+    <!-- 2025 LEADERBOARD -->
+    <!-- ========================= -->
     <section id="s2025-leaderboard" class="content-section">
       <h2>Leaderboard — 2025</h2>
       <div class="table-wrapper">
@@ -168,10 +261,13 @@
       </div>
     </section>
 
-    <!-- 2025 Conclusion -->
+    <!-- ========================= -->
+    <!-- 2025 CONCLUSION -->
+    <!-- ========================= -->
     <section id="s2025-conclusion" class="content-section">
       <h2>Season Conclusion — 19th December 2025</h2>
-      <p>The 2025 Letterkenny Poker Hunter League has officially come to a close...Congrats to Champions League Winner.... <strong>Kevin Lee</strong></p>
+      <p>The 2002 Cardroom League for 2025 has officially come to a close...Congrats to Champions League Winner.... <strong>Kevin Lee</strong></p>
+      <p>Stayed tuned for more excitement for 2026 season...</p>
       <div class="chart-block">
         <h3>League Points</h3>
         <img src="images/league_points2025.png" alt="League Points chart">
@@ -181,12 +277,16 @@
 
   
 
-<!-- ========================= -->
-<!-- SEASON 2026 CONTENT -->
-<!-- ========================= -->
+  <!-- ========================= -->
+  <!-- SEASON 2026 CONTENT -->
+  <!-- ========================= -->
+
+  <!-- ========================= -->
+  <!-- 2026 BLOG  -->
+  <!-- ========================= -->
 
 <section id="s2026-blog" class="content-section">
-  <h2>2026 Season Blog — League Overview & New Format</h2>
+  <h1>2026 Season Blog — League Overview & New Format</h1>
 
   <p>
     The 2026 season kicks off on <strong>Friday, 2nd January 2026</strong>, bringing a refreshed league structure, stricter rules, and a brand‑new competitive format. This year also introduces the optional <strong>Champions League Final</strong>, giving players a high‑stakes finale to aim for.
@@ -202,7 +302,7 @@
     Attendance: 8 players — beer count: medium.
   </p>
 
-  <p>Another cold start to January, with the snow falling, Brendan said No No to Carlow! and joined the warm crew.</p>
+  <p>Another cold start to January, with the snow falling, Brendan said a big No to Carlow! and joined the warm crew.</p>
 
   <p>As usual, Morgan arrived just in time... Harumph... and went on a demolition Derby with great Pride Park, smashing the Director every time he popped his head up.</p>
 
@@ -264,7 +364,10 @@
 
 </section>
 
-
+    <!-- ========================= -->
+    <!-- 2026 CHAMPIONS LEAGUE FORMAT -->
+    <!-- ========================= -->
+    
     <section id="s2026-league" class="content-section">
 
       <h3>Champions League Format</h3>
@@ -300,7 +403,9 @@
     </section>
 
 
-    <!-- 2026 Results -->
+    <!-- ========================= -->
+    <!-- 2026 RESULTS -->
+    <!-- ========================= -->
     <section id="s2026-results" class="content-section">
       <h2>Player Results — 2026</h2>
       <div class="table-wrapper">
@@ -308,7 +413,9 @@
       </div>
     </section>
 
-    <!-- 2026 Leaderboard -->
+    <!-- ========================= -->
+    <!-- 2026 LEADERBOARD -->
+    <!-- ========================= -->
     <section id="s2026-leaderboard" class="content-section">
       <h2>Leaderboard — 2026</h2>
       <div class="table-wrapper">
@@ -332,7 +439,9 @@
 
     </section>
 
-    <!-- 2026 Conclusion -->
+    <!-- ========================= -->
+    <!-- 2026 CONCLUSION -->
+    <!-- ========================= -->
     <section id="s2026-conclusion" class="content-section">
       <h2>Season Conclusion — 2026</h2>
       <p>Season summary will appear here.</p>
@@ -340,88 +449,7 @@
 
     </section>
 
-    <!-- ========================= -->
-    <!-- GLOBAL SECTIONS -->
-    <!-- ========================= -->
-
-    <!-- Game Structure -->
-    <section id="global-structure" class="content-section">
-      <h2>Game Structure</h2>
-
-      <h3> Nightly Tournament Structure</h3>
-
-      <p>
-        The tournament is played over <strong>6 levels</strong>:
-      </p>
-
-      <ul>
-        <li>Levels 1–5: 30 minutes each</li>
-        <li>Level 6: 45 minutes</li>
-        <li>25‑minute break after Level 3</li>
-        <li>15‑minute break after Level 5</li>
-      </ul>
-
-      <p>
-        <strong>Buy‑in:</strong> €30  
-        <br>Starting stack: 30,000 chips (15,000 + free 15,000 add‑on)
-      </p>
-
-      <p>
-        <strong>Rebuy / Top-Up:</strong> €20 = 20,000 chips  
-        <br>Max 1 per game, must be used before the end of Level 5.
-      </p>
-
-      <h3>End of Level 6</h3>
-
-      <ul>
-        <li>Chips ÷ 1000 = cash‑out amount</li>
-        <li>Chips × 50 = league points</li>
-      </ul>
-
-     
-
-      <div class="table-wrapper">
-        <div id="structure-table"></div>
-      </div>
-    </section>
-
-    <!-- Hosts & Schedule -->
-    <section id="global-hosts" class="content-section">
-      <h2>Hosts &amp; Schedule</h2>
-      <div class="table-wrapper">
-        <div id="hosts-table"></div>
-      </div>
-
-      <p>
-        The tournament proposed dates:
-      </p>
-
-      <ul>
-        <li>Event 1 :  2  January 2026 -    Host: Barry</li>
-        <li>Event 2 :  23 January 2026 -    Host: Ciaran</li>
-        <li>Event 3 :  13 February 2026 -   Host: Martin</li>
-        <li>Event 4 :  6 March 2026 -       Host: TBC</li>
-        <li>Event 5 :  3  April 2026 -      Host: TBC</li>
-        <li>Event 6 :  17 April 2026 -      Host: TBC</li>
-        <li>Event 7 :  15 May 2026 -        Host: TBC</li>
-        <li>Event 8 :  19 June 2026 -       Host: TBC</li>
-        <li>Event 9 :  17 July 2026 -       Host: TBC</li>
-        <li>Event 10 : 14 August 2026 -     Host: TBC</li>
-        <li>Event 11 : 11 September 2026 -  Host: TBC</li>
-        <li>Event 12 : 16  October 2026 -   Host: TBC</li>
-        <li>Event 13 : 6 November 2026 -    Host: TBC</li>
-        <li>Event 14 : 4 December 2026 -    Host: TBC</li>
-        <li>Champions League Final will be on December 2026, Date TBC -    Host: TBC</li>
-
-    </section>
-
-    <!-- Players -->
-    <section id="global-players" class="content-section">
-      <h2>Players</h2>
-      <div class="table-wrapper">
-        <div id="players-table"></div>
-      </div>
-    </section>
+  
 
   </main>
 
