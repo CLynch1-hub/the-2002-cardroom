@@ -58,32 +58,52 @@ body {
 /* ====================================================
    NAVIGATION BUTTONS
    ==================================================== */
-/* Sidebar becomes top bar on mobile */
+
+/* DESKTOP SIDEBAR (default) */
 .sidebar {
-  width: 100%;
-  height: auto;
+  width: 250px;          /* or whatever your desktop width is */
   position: fixed;
   top: 0;
   left: 0;
-  padding: 10px 15px;
+  height: 100vh;
+  padding: 20px;
   background: #1a1a1a;
-  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-  border-top: 2px solid rgba(255, 215, 0, 0.3);
-
-  transform: translateY(-100%);
-  pointer-events: none;
-  transition: transform 0.3s ease;
+  border-right: 2px solid rgba(255, 215, 0, 0.3);
 }
 
-.sidebar.open {
-  transform: translateY(0);
-  pointer-events: auto;
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  /* Sidebar becomes top bar */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    background: #1a1a1a;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    border-top: 2px solid rgba(255, 215, 0, 0.3);
+
+    transform: translateY(-100%);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Push content down so it doesn't sit under the hidden bar */
+  body {
+    padding-top: 60px;
+  }
 }
 
-/* Push content down so it doesn't sit under the hidden bar */
-body {
-  padding-top: 60px; /* adjust to match your sidebar height */
-}
+
+
 
 /* ====================================================
    TYPOGRAPHY
