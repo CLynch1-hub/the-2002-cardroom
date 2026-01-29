@@ -225,6 +225,37 @@ td {
   margin-bottom: 25px;
 }
 
+.table-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.table-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.04), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(255,255,255,0.03), transparent 60%);
+  animation: feltShimmer 18s linear infinite;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.table-wrapper::after {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 100%;
+  margin-top: 12px;
+  background: linear-gradient(to right, #d4af37, #f7e27c, #d4af37);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(255,215,0,0.4);
+}
+
+
 /* Table itself */
 table {
   display: table;
@@ -234,6 +265,19 @@ table {
   border-radius: 8px;
   overflow: hidden;
 }
+
+/* Subtle felt shimmer animation */
+@keyframes feltShimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+
+
 
 
 /* Gold Vegas-style header */
