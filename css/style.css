@@ -234,9 +234,17 @@ tbody tr:hover {
     pointer-events: auto;
   }
 
-  /* Hamburger visible on mobile */
+  /* Hamburger visible + positioned on mobile */
   .hamburger {
     display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    background: #1a1a1a;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 4px;
   }
 
   /* Content no longer offset by desktop sidebar */
@@ -254,6 +262,7 @@ tbody tr:hover {
     grid-template-columns: 1fr;
   }
 }
+
 
 /* ====================================================
    VERY SMALL SCREENS — CARD STYLE TABLES
