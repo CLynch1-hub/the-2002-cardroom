@@ -1,6 +1,17 @@
-// ----------------------------------------------------
-// CSV PARSER
-// ----------------------------------------------------
+// =====================================================
+// BASIC HELPERS
+// =====================================================
+function $(selector, scope = document) {
+  return scope.querySelector(selector);
+}
+
+function $all(selector, scope = document) {
+  return Array.from(scope.querySelectorAll(selector));
+}
+
+// =====================================================
+// CSV PARSER + LOADER
+// =====================================================
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
   return lines.map(line =>
@@ -8,136 +19,185 @@ function parseCSV(text) {
   );
 }
 
-// ----------------------------------------------------
-// GENERIC TABLE LOADER
-// ----------------------------------------------------
-function createTable(containerId, csvPath) {
-  fetch(csvPath)
-    .then(res => res.text())
-    .then(text => {
-      const rows = parseCSV(text);
-      if (!rows.length) return;
-
-      const container = document.getElementById(containerId);
-      if (!container) return;
-
-      const table = document.createElement("table");
-      const thead = document.createElement("thead");
-      const tbody = document.createElement("tbody");
-
-      // Header row
-      const headerRow = document.createElement("tr");
-      rows[0].forEach(col => {
-        const th = document.createElement("th");
-        th.textContent = col;
-        headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-
-      // Body rows
-      rows.slice(1).forEach(row => {
-        if (row.length === 1 && row[0] === "") return;
-
-        const tr = document.createElement("tr");
-        row.forEach((cell, i) => {
-          const td = document.createElement("td");
-          td.textContent = cell;
-          td.setAttribute("data-label", rows[0][i] || "");
-          tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-      });
-
-      table.appendChild(thead);
-      table.appendChild(tbody);
-      container.innerHTML = "";
-      container.appendChild(table);
-    })
-    .catch(err => console.error("Error loading CSV:", csvPath, err));
+async function loadCSV(path) {
+  const response = await fetch(path);
+  const text = await response.text();
+  return parseCSV(text);
 }
 
-// ----------------------------------------------------
-// SIDEBAR NAVIGATION (CONTENT SECTIONS)
-// ----------------------------------------------------
-function setupNav() {
-  const buttons = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll(".content-section");
+// =====================================================
+// TABLE BUILDERS
+// =====================================================
+function buildTable(containerId, rows) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
 
-  buttons.forEach(btn => {
-    const target = btn.getAttribute("data-target");
-    if (!target) return;
+  let html = "<table><tbody>";
 
-    btn.addEventListener("click", () => {
-      // Update active button
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+  rows.forEach(row => {
+    html += "<tr>" + row.map(cell => `<td>${cell}</td>`).join("") + "</tr>";
+  });
 
-      // Show matching content section
-      sections.forEach(sec => {
-        sec.classList.toggle("active", sec.id === target);
-      });
+  html += "</tbody></table>";
+  container.innerHTML = html;
+}
 
-      // Close mobile menu if open
-      const openNav = document.querySelector(".sidebar-nav.open");
-      if (openNav) openNav.classList.remove("open");
+async function buildPlayersTable() {
+  const rows = await loadCSV("data/players.csv");
+  buildTable("players-table", rows);
+}
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+async function buildHostsTable() {
+  const rows = await loadCSV("data/hosts.csv");
+  buildTable("hosts-table", rows);
+}
+
+async function buildStructureTable() {
+  const rows = await loadCSV("data/structure.csv");
+  buildTable("structure-table", rows);
+}
+
+async function buildResults2025() {
+  const rows = await loadCSV("data/results2025.csv");
+  buildTable("results-table-2025", rows);
+}
+
+async function buildResults2026() {
+  const rows = await loadCSV("data/results2026.csv");
+  buildTable("results-table-2026", rows);
+}
+
+async function buildLeaderboard2025() {
+  const rows = await loadCSV("data/leaderboard2025.csv");
+  buildTable("leaderboard-table-2025", rows);
+}
+
+async function buildLeaderboard2026() {
+  const rows = await loadCSV("data/leaderboard2026.csv");
+  buildTable("leaderboard-table-2026", rows);
+}
+
+// =====================================================
+// ELEMENT REFERENCES
+// =====================================================
+const sidebar = $('.sidebar');
+const hamburger = $('.hamburger');
+
+const globalNav = $('.global-nav');
+const globalNavLinks = $all('.global-nav .nav-link');
+
+const seasonButtons = $all('.season-btn');
+const seasonNavs = $all('.season-nav');
+const seasonNavLinks = $all('.season-nav .nav-link');
+
+const allSections = $all('.content-section');
+
+// =====================================================
+// SIDEBAR TOGGLE (MOBILE)
+// =====================================================
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
   });
 }
 
-// ----------------------------------------------------
-// SEASON SWITCHER (TOGGLES SIDEBAR MENUS)
-// ----------------------------------------------------
-function setupSeasonSwitcher() {
-  const seasonButtons = document.querySelectorAll(".season-btn");
-  const seasonMenus = document.querySelectorAll(".season-nav");
+document.addEventListener('click', (e) => {
+  const insideSidebar = sidebar.contains(e.target);
+  const onHamburger = hamburger && hamburger.contains(e.target);
 
-  seasonButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const season = btn.dataset.season;
-
-      // Update active season button
-      seasonButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      // Show correct sidebar menu
-      seasonMenus.forEach(menu => {
-        menu.classList.toggle("active", menu.classList.contains(`season-${season}`));
-      });
-    });
-  });
-}
-
-// ----------------------------------------------------
-// HAMBURGER MENU
-// ----------------------------------------------------
-function setupHamburger() {
-  const hamburger = document.querySelector(".hamburger");
-  const activeMenu = () => document.querySelector(".sidebar-nav.active");
-
-  hamburger.addEventListener("click", () => {
-    const menu = activeMenu();
-    if (menu) menu.classList.toggle("open");
-  });
-}
-
-// ----------------------------------------------------
-// INITIALISE ON LOAD
-// ----------------------------------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  setupHamburger();
-  setupSeasonSwitcher();
-  setupNav();
-
-  // Load CSV tables
-  createTable("structure-table", "data/Game Structure.csv");
-  createTable("hosts-table", "data/Hosts.csv");
-  createTable("players-table", "data/Poker Players.csv");
-
-  createTable("results-table-2025", "data/Player Results-2025.csv");
-  createTable("leaderboard-table-2025", "data/Leaderboard-2025.csv");
-
-  createTable("results-table-2026", "data/Player Results-2026.csv");
-  createTable("leaderboard-table-2026", "data/Leaderboard-2026.csv");
+  if (!insideSidebar && !onHamburger) {
+    sidebar.classList.remove('open');
+  }
 });
+
+// =====================================================
+// SECTION SHOW/HIDE
+// =====================================================
+function showSectionById(id) {
+  allSections.forEach(sec => {
+    sec.classList.toggle('active', sec.id === id);
+  });
+}
+
+// =====================================================
+// GLOBAL NAVIGATION
+// =====================================================
+globalNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    globalNavLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    seasonNavLinks.forEach(l => l.classList.remove('active'));
+
+    const targetId = link.dataset.target;
+    showSectionById(targetId);
+
+    globalNav.classList.add('active');
+    seasonNavs.forEach(nav => nav.classList.remove('active'));
+
+    sidebar.classList.add('open');
+  });
+});
+
+// =====================================================
+// SEASON SWITCHER (2025 / 2026)
+// =====================================================
+seasonButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const season = btn.dataset.season;
+
+    seasonButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    seasonNavs.forEach(nav => {
+      nav.classList.toggle('active', nav.classList.contains(`season-${season}`));
+    });
+
+    globalNav.classList.remove('active');
+    globalNavLinks.forEach(l => l.classList.remove('active'));
+
+    const defaultSectionId = season === '2025' ? 's2025-blog' : 's2026-blog';
+    showSectionById(defaultSectionId);
+
+    seasonNavLinks.forEach(l => {
+      l.classList.toggle('active', l.dataset.target === defaultSectionId);
+    });
+
+    sidebar.classList.add('open');
+  });
+});
+
+// =====================================================
+// SEASON NAV LINKS
+// =====================================================
+seasonNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const parentNav = link.closest('.season-nav');
+    const siblings = $all('.nav-link', parentNav);
+
+    siblings.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    const targetId = link.dataset.target;
+    showSectionById(targetId);
+
+    sidebar.classList.add('open');
+  });
+});
+
+// =====================================================
+// INITIALISATION
+// =====================================================
+showSectionById('global-intro');
+globalNav.classList.add('active');
+globalNavLinks[0].classList.add('active');
+
+seasonNavs.forEach(nav => nav.classList.remove('active'));
+
+buildPlayersTable();
+buildHostsTable();
+buildStructureTable();
+buildResults2025();
+buildResults2026();
+buildLeaderboard2025();
+buildLeaderboard2026();
