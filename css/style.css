@@ -55,12 +55,12 @@ body {
   display: block;
 }
 
-/* Force desktop tables to behave normally */
+/* Force desktop tables to behave normally
 table {
   display: table;
   width: 100%;
   border-collapse: collapse;
-}
+}  */
 
 thead {
   display: table-header-group;
@@ -114,7 +114,8 @@ td {
 }
 
 /* ====================================================
-   MOBILE — SLIDE DOWN SIDEBAR
+   MOBILE — SLIDE DOWN SIDEBAR - 
+   This controls the mobile navigation + sidebar behaviour
    ==================================================== */
 @media (max-width: 768px) {
 
@@ -209,9 +210,68 @@ td {
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
+/* ====================================================
+   CASINO FELT + OLD-SCHOOL VEGAS TABLE DESIGN
+   ==================================================== */
+
+/* Table wrapper for rounded corners + shadow */
+.table-wrapper {
+  background: #0b3d0b; /* deep green felt */
+  background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 60%),
+                    radial-gradient(circle at 70% 70%, rgba(0,0,0,0.2), transparent 60%);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
+  margin-bottom: 25px;
+}
+
+/* Table itself */
+table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0,0,0,0.25); /* subtle transparency over felt */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+/* Gold Vegas-style header */
+thead th {
+  background: linear-gradient(to bottom, #d4af37, #b8860b);
+  color: #000;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+/* Alternating row shading */
+tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.05);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(0,0,0,0.15);
+}
+
+/* Hover highlight */
+tbody tr:hover {
+  background: rgba(255,215,0,0.15);
+  transition: background 0.2s ease;
+}
+
+/* Cell borders */
+th, td {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 10px;
+}
+
+  
 
  /* ====================================================
    VERY SMALL SCREENS — CARD STYLE TABLES
+   This controls the mobile TABLE card layout.
    ==================================================== */
   @media (max-width: 480px) {
 
