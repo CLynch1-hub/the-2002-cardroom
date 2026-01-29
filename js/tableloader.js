@@ -57,7 +57,7 @@ function createTable(containerId, csvPath) {
 }
 
 // ----------------------------------------------------
-// SIDEBAR NAVIGATION
+// SIDEBAR NAVIGATION (CONTENT SECTIONS)
 // ----------------------------------------------------
 function setupNav() {
   const buttons = document.querySelectorAll(".nav-link");
@@ -72,7 +72,7 @@ function setupNav() {
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      // Show matching section
+      // Show matching content section
       sections.forEach(sec => {
         sec.classList.toggle("active", sec.id === target);
       });
@@ -81,24 +81,45 @@ function setupNav() {
       const openNav = document.querySelector(".sidebar-nav.open");
       if (openNav) openNav.classList.remove("open");
 
-      // Scroll to top
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 }
 
 // ----------------------------------------------------
-// HAMBURGER MENU (MOBILE)
+// SEASON SWITCHER (TOGGLES SIDEBAR MENUS)
+// ----------------------------------------------------
+function setupSeasonSwitcher() {
+  const seasonButtons = document.querySelectorAll(".season-btn");
+  const seasonMenus = document.querySelectorAll(".season-nav");
+
+  seasonButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const season = btn.dataset.season;
+
+      // Update active season button
+      seasonButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Show correct sidebar menu
+      seasonMenus.forEach(menu => {
+        menu.classList.toggle("active", menu.classList.contains(`season-${season}`));
+      });
+    });
+  });
+}
+
+// ----------------------------------------------------
+// HAMBURGER MENU
 // ----------------------------------------------------
 function setupHamburger() {
   const hamburger = document.querySelector(".hamburger");
-  const sidebarNav = document.querySelector(".sidebar-nav");
+  const activeMenu = () => document.querySelector(".sidebar-nav.active");
 
-  if (hamburger && sidebarNav) {
-    hamburger.addEventListener("click", () => {
-      sidebarNav.classList.toggle("open");
-    });
-  }
+  hamburger.addEventListener("click", () => {
+    const menu = activeMenu();
+    if (menu) menu.classList.toggle("open");
+  });
 }
 
 // ----------------------------------------------------
@@ -106,18 +127,17 @@ function setupHamburger() {
 // ----------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   setupHamburger();
+  setupSeasonSwitcher();
   setupNav();
 
-  // Load all CSV-driven tables
+  // Load CSV tables
   createTable("structure-table", "data/Game Structure.csv");
   createTable("hosts-table", "data/Hosts.csv");
   createTable("players-table", "data/Poker Players.csv");
 
-  // 2025
   createTable("results-table-2025", "data/Player Results-2025.csv");
   createTable("leaderboard-table-2025", "data/Leaderboard-2025.csv");
 
-  // 2026
   createTable("results-table-2026", "data/Player Results-2026.csv");
   createTable("leaderboard-table-2026", "data/Leaderboard-2026.csv");
 });
