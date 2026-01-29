@@ -139,6 +139,7 @@ body {
     display: block;
     border: 0;
     min-width: 0;
+    width: 100%;
   }
 
   thead {
@@ -147,10 +148,11 @@ body {
 
   tbody tr {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     background: rgba(0, 0, 0, 0.4);
     padding: 10px;
     border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
 
   tbody td {
@@ -165,3 +167,4 @@ body {
     border-bottom: none;
   }
 }
+
