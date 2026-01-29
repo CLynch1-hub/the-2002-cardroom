@@ -57,7 +57,7 @@ function createTable(containerId, csvPath) {
 }
 
 // ----------------------------------------------------
-// NAVIGATION SETUP
+// SIDEBAR NAVIGATION
 // ----------------------------------------------------
 function setupNav() {
   const buttons = document.querySelectorAll(".nav-link");
@@ -69,73 +69,55 @@ function setupNav() {
 
     btn.addEventListener("click", () => {
       // Update active button
-      buttons.forEach(b => {
-        if (b.getAttribute("data-target")) b.classList.remove("active");
-      });
+      buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       // Show matching section
       sections.forEach(sec => {
-        if (sec.id === target) sec.classList.add("active");
-        else sec.classList.remove("active");
+        sec.classList.toggle("active", sec.id === target);
       });
 
       // Close mobile menu if open
       const openNav = document.querySelector(".sidebar-nav.open");
       if (openNav) openNav.classList.remove("open");
 
-      // Scroll to top for better UX
+      // Scroll to top
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 }
 
 // ----------------------------------------------------
-// SEASON SWITCHER
+// HAMBURGER MENU (MOBILE)
 // ----------------------------------------------------
-function setupSeasonSwitcher() {
-  const seasonButtons = document.querySelectorAll(".season-btn");
-//
-  seasonButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const season = btn.dataset.season;
-//
-      // Update active season button
-      seasonButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+function setupHamburger() {
+  const hamburger = document.querySelector(".hamburger");
+  const sidebarNav = document.querySelector(".sidebar-nav");
 
-      // Show correct season nav
-      document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
-      document.querySelector(`.season-${season}`)?.classList.add("active");
+  if (hamburger && sidebarNav) {
+    hamburger.addEventListener("click", () => {
+      sidebarNav.classList.toggle("open");
     });
-  });
+  }
 }
 
 // ----------------------------------------------------
 // INITIALISE ON LOAD
 // ----------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
+  setupHamburger();
   setupNav();
-   setupSeasonSwitcher();
-
-  // Ensure correct season nav is visible on load
-   const activeSeason = document.querySelector(".season-btn.active")?.dataset.season;
-   document.querySelectorAll(".season-nav").forEach(nav => nav.classList.remove("active"));
-   document.querySelector(`.season-${activeSeason}`)?.classList.add("active");
 
   // Load all CSV-driven tables
+  createTable("structure-table", "data/Game Structure.csv");
+  createTable("hosts-table", "data/Hosts.csv");
+  createTable("players-table", "data/Poker Players.csv");
 
-// Global tables
-createTable("structure-table", "data/Game Structure.csv");
-createTable("hosts-table", "data/Hosts.csv");
-createTable("players-table", "data/Poker Players.csv");
+  // 2025
+  createTable("results-table-2025", "data/Player Results-2025.csv");
+  createTable("leaderboard-table-2025", "data/Leaderboard-2025.csv");
 
-// 2025 tables
-createTable("results-table-2025", "data/Player Results-2025.csv");
-createTable("leaderboard-table-2025", "data/Leaderboard-2025.csv");
-
-// 2026 tables
-createTable("results-table-2026", "data/Player Results-2026.csv");
-createTable("leaderboard-table-2026", "data/Leaderboard-2026.csv");
-
+  // 2026
+  createTable("results-table-2026", "data/Player Results-2026.csv");
+  createTable("leaderboard-table-2026", "data/Leaderboard-2026.csv");
 });
