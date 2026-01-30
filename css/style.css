@@ -276,6 +276,16 @@ table {
   }
 }
 
+/* Mobile horizontal scroll for wide tables */
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper table {
+  min-width: 600px; /* adjust depending on your column count */
+}
 
 
 
@@ -316,7 +326,7 @@ th, td {
  /* ====================================================
    VERY SMALL SCREENS — CARD STYLE TABLES
    This controls the mobile TABLE card layout.
-   ==================================================== */
+   ==================================================== 
   @media (max-width: 480px) {
 
   table {
@@ -350,7 +360,7 @@ th, td {
   tbody td:last-child {
     border-bottom: none;
   }
-}
+} */
 
 /* ====================================================
    DESKTOP OVERRIDE — MUST COME LAST
