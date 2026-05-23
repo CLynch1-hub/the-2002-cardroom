@@ -374,5 +374,12 @@ th, td {
   }
 }
 
+.event-photo {
+  display: block;
+  margin: 20px auto;
+  max-width: 420px;
+  border-radius: 6px;
+}
+
 
 
